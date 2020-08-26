@@ -23,7 +23,6 @@ class RegistrationForm extends Component {
         user_name.value = "";
         password.value = "";
         this.props.history.push("/login");
-        this.props.onRegistrationSuccess();
       })
       .catch((res) => {
         this.setState({ error: res.error });

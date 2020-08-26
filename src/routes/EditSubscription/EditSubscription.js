@@ -49,7 +49,6 @@ class EditSubscription extends Component {
       subscription_password: this.state.subscription_password,
       category: this.state.category,
     };
-    console.log(inputValues);
 
     fetch(
       `${config.API_ENDPOINT}/api/subscriptions/${this.props.match.params.subscriptionId}`,

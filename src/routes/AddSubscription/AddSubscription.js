@@ -15,7 +15,6 @@ export default function AddSubscription(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hi");
     const newSubscription = {
       subscription_name: name,
       subscription_price: price,

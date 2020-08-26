@@ -23,7 +23,6 @@ class LoginForm extends Component {
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
         this.props.history.push("/dashboard");
-        this.props.onLoginSuccess();
       })
       .catch((error) => {
         this.setState({ error });
