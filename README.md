@@ -24,7 +24,7 @@ Password: Thinkful1!
 - the add subscription form allows you to input your subscription information
 - entering password and usernames are not required
 
-API Repo: https://github.com/thinkful-ei-panda/subroom-api
+API Repo: https://github.com/MichaelHyunookOh/subroom-api
 
 ## TECHNOLOGIES USED
 
