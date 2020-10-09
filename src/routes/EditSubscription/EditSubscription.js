@@ -38,7 +38,7 @@ function EditSubscription(props) {
     return () => {
       isMounted = false;
     };
-  });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

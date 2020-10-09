@@ -2,11 +2,11 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Dashboard from "./routes/Dashboard/Dashboard";
 import AddSubscription from "./routes/AddSubscription/AddSubscription";
-import LoginPage from "./routes/LoginPage/LoginPage";
+import LoginForm from "./routes/LoginForm/LoginForm";
 import EditSubscription from "./routes/EditSubscription/EditSubscription";
 import PublicOnlyRoute from "./components/Utils/PublicOnlyRoute";
 import LandingPage from "./routes/LandingPage/LandingPage";
-import RegistrationPage from "./routes/RegistrationPage/RegistrationPage";
+import RegistrationForm from "./routes/RegistrationForm/RegistrationForm";
 
 class App extends React.Component {
   state = {
@@ -64,12 +64,12 @@ class App extends React.Component {
           )}
         />
 
-        <PublicOnlyRoute exact path={"/login"} component={LoginPage} />
+        <PublicOnlyRoute exact path={"/login"} component={LoginForm} />
 
         <PublicOnlyRoute
           exact
           path={"/register"}
-          component={RegistrationPage}
+          component={RegistrationForm}
         />
       </main>
     );
