@@ -33,11 +33,11 @@ export default function Dashboard(props) {
     };
   });
   const deleteSubscription = (subscriptionId) => {
-    setSubscriptions({
-      subscriptions: subscriptions.filter(
+    setSubscriptions([
+      subscriptions.filter(
         (subscription) => subscription.id !== subscriptionId
       ),
-    });
+    ]);
   };
 
   return (

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { withRouter, Link, useHistory } from "react-router-dom";
 import AuthService from "../../services/auth-service";
-import TokenService from "../../services/token-service";
 import "./RegistrationForm.css";
 
 function RegistrationForm(props) {
@@ -20,14 +19,7 @@ function RegistrationForm(props) {
       .then((user) => {
         user_name.value = "";
         password.value = "";
-        AuthService.postLogin({
-          user_name: user_name.value,
-          password: password.value,
-        });
-      })
-      .then((res) => {
-        TokenService.saveAuthToken(res.authToken);
-        push("/dashboard");
+        push("/login");
       })
       .catch((res) => {
         setError(res.error);
