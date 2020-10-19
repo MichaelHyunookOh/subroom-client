@@ -27,7 +27,7 @@ export default function Total(props) {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [total]);
 
   const renderTotal = () => {
     return total.map((tot, index) => {

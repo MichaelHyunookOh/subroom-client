@@ -9,6 +9,7 @@ import Total from "../../components/Total/Total";
 
 export default function Dashboard(props) {
   const [subscriptions, setSubscriptions] = useState([]);
+  const [, setUpdate] = useState();
 
   useEffect(() => {
     let isMounted = true;
@@ -35,12 +36,9 @@ export default function Dashboard(props) {
     };
   }, []);
   const deleteSubscription = (subscriptionId) => {
-    setSubscriptions([
-      subscriptions.filter(
-        (subscription) => subscription.id !== subscriptionId
-      ),
-    ]);
-    console.log(subscriptions);
+    setSubscriptions(
+      subscriptions.filter((subscription) => subscription.id !== subscriptionId)
+    );
   };
 
   return (
