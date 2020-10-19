@@ -24,6 +24,7 @@ function Subscription(props) {
       .catch((error) => {
         console.error(error);
       });
+    // window.location.reload(false);
   };
 
   return (

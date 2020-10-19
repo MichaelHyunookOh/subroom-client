@@ -5,6 +5,7 @@ import config from "../../config";
 import TokenService from "../../services/token-service";
 import Header from "../../components/Header/Header";
 import "./Dashboard.css";
+import Total from "../../components/Total/Total";
 
 export default function Dashboard(props) {
   const [subscriptions, setSubscriptions] = useState([]);
@@ -24,6 +25,7 @@ export default function Dashboard(props) {
       })
       .then(([subscriptions]) => {
         if (isMounted) setSubscriptions(subscriptions);
+        console.log(subscriptions);
       })
       .catch((error) => {
         console.log({ error });
@@ -31,13 +33,14 @@ export default function Dashboard(props) {
     return () => {
       isMounted = false;
     };
-  });
+  }, []);
   const deleteSubscription = (subscriptionId) => {
     setSubscriptions([
       subscriptions.filter(
         (subscription) => subscription.id !== subscriptionId
       ),
     ]);
+    console.log(subscriptions);
   };
 
   return (
@@ -45,14 +48,17 @@ export default function Dashboard(props) {
       <header className="App-header">
         <Header />
       </header>
+      <h3>
+        <Total />
+      </h3>
       <section className="add-new-subscription">
         <Link to="/addSubscription">
           <button>Add New Subscription</button>
         </Link>
       </section>
       <ul>
-        {subscriptions.map((subscription) => (
-          <li key={subscription.id}>
+        {subscriptions.map((subscription, index) => (
+          <li key={index}>
             <Subscription
               id={subscription.id}
               name={subscription.subscription_name}
