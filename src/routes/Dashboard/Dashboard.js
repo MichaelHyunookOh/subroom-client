@@ -46,14 +46,16 @@ export default function Dashboard(props) {
       <header className="App-header">
         <Header />
       </header>
-      <h3>
-        <Total />
-      </h3>
-      <section className="add-new-subscription">
-        <Link to="/addSubscription">
-          <button>Add New Subscription</button>
-        </Link>
-      </section>
+      <div className="add-total">
+        <section className="add-new-subscription">
+          <Link to="/addSubscription">
+            <button>Add New Subscription</button>
+          </Link>
+        </section>
+        <h3>
+          <Total />
+        </h3>
+      </div>
       <ul>
         {subscriptions.map((subscription, index) => (
           <li key={index}>

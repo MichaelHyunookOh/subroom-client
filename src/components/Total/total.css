@@ -1,0 +1,11 @@
+.monthly-total {
+  display: flex;
+  padding-right: 40px;
+}
+.tot {
+  display: flex;
+  justify-content: center;
+}
+.monthly-total-item {
+  border-bottom: 3px solid;
+}

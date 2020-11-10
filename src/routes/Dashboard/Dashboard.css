@@ -22,10 +22,15 @@ li {
   padding: 5px;
 }
 
+.add-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .add-new-subscription {
   display: flex;
-  padding-left: 60px;
-  justify-content: flex-start;
+  padding-left: 40px;
 }
 
 .addSubscriptionButton {

@@ -5,7 +5,7 @@ import TokenService from "../../services/token-service";
 import "./LandingPage.css";
 
 export default function LandingPage() {
-  const login = () => {
+  const notLoggedIn = () => {
     return (
       <section className="buttons">
         <div className="login">
@@ -22,7 +22,7 @@ export default function LandingPage() {
     );
   };
 
-  const notLoggedIn = () => {
+  const loggedIn = () => {
     return (
       <section className="buttons">
         <div className="login">
@@ -40,7 +40,7 @@ export default function LandingPage() {
         <h1>Welcome to Subroom!</h1>
         <h2>Your subscriptions need a home too</h2>
       </header>
-      {TokenService.hasAuthToken() ? notLoggedIn() : login()}
+      {TokenService.hasAuthToken() ? loggedIn() : notLoggedIn()}
       <section className="description">
         <p>
           {""}

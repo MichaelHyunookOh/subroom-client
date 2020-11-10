@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import config from "../../config";
+import "./total.css";
 import TokenService from "../../services/token-service";
 
 export default function Total(props) {
@@ -31,9 +32,16 @@ export default function Total(props) {
 
   const renderTotal = () => {
     return total.map((tot, index) => {
-      return <h3 key={index}>{tot.total}</h3>;
+      return (
+        <section className="monthly-total">
+          <h3 key={index}>
+            <div className="monthly-total-item">Monthly Total</div>{" "}
+            <div className="tot">{tot.total}</div>
+          </h3>
+        </section>
+      );
     });
   };
 
-  return <section>{renderTotal()}</section>;
+  return <section className="total">{renderTotal()}</section>;
 }
