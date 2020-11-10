@@ -1,79 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import Dashboard from "./routes/Dashboard/Dashboard";
 import AddSubscription from "./routes/AddSubscription/AddSubscription";
-import LoginPage from "./routes/LoginPage/LoginPage";
+import LoginForm from "./routes/LoginForm/LoginForm";
 import EditSubscription from "./routes/EditSubscription/EditSubscription";
 import PublicOnlyRoute from "./components/Utils/PublicOnlyRoute";
 import LandingPage from "./routes/LandingPage/LandingPage";
-import RegistrationPage from "./routes/RegistrationPage/RegistrationPage";
+import RegistrationForm from "./routes/RegistrationForm/RegistrationForm";
 
-class App extends React.Component {
-  state = {
-    subscriptions: [],
-    hasError: false,
+function App(props) {
+  const [subscriptions, setSubscriptions] = useState([]);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect((error) => {
+    if (error) {
+      setHasError(true);
+    }
+  }, []);
+
+  const handleAddSubscription = (subscription) => {
+    setSubscriptions([subscription]);
   };
 
-  static getDerivedStateFromError(error) {
-    console.error(error);
-    return { hasError: true };
-  }
-
-  handleAddSubscription = (subscription) => {
-    this.setState({
-      subscriptions: [...this.state.subscriptions, subscription],
-    });
-  };
-
-  handleUpdateSubscription = (updatedSubscription) => {
-    const newSubscriptions = this.state.subscriptions.map((sub) =>
+  const handleUpdateSubscription = (updatedSubscription) => {
+    const newSubscriptions = subscriptions.map((sub) =>
       sub.id === updatedSubscription.id ? updatedSubscription : sub
     );
-    this.setState({
-      subscriptions: newSubscriptions,
-    });
+    setSubscriptions([newSubscriptions]);
   };
 
-  render() {
-    return (
-      <main className="App">
-        <section className="app-with-header">
-          {this.state.hasError && (
-            <p className="red">There was an error! Oh no!</p>
-          )}
+  return (
+    <main className="App">
+      <section className="app-with-header">
+        {hasError && <p className="red">There was an error! Oh no!</p>}
 
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/dashboard" component={Dashboard} />
-
-          <Route
-            exact
-            path="/addSubscription"
-            render={() => (
-              <AddSubscription addSubscription={this.handleAddSubscription} />
-            )}
-          />
-        </section>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
 
         <Route
           exact
-          path="/edit/:subscriptionId"
+          path="/addSubscription"
           render={() => (
-            <EditSubscription
-              updateSubscription={this.handleUpdateSubscription}
-            />
+            <AddSubscription addSubscription={handleAddSubscription} />
           )}
         />
+      </section>
 
-        <PublicOnlyRoute exact path={"/login"} component={LoginPage} />
+      <Route
+        exact
+        path="/edit/:subscriptionId"
+        render={() => (
+          <EditSubscription updateSubscription={handleUpdateSubscription} />
+        )}
+      />
 
-        <PublicOnlyRoute
-          exact
-          path={"/register"}
-          component={RegistrationPage}
-        />
-      </main>
-    );
-  }
+      <PublicOnlyRoute exact path={"/login"} component={LoginForm} />
+
+      <PublicOnlyRoute exact path={"/register"} component={RegistrationForm} />
+    </main>
+  );
 }
 
 export default App;
