@@ -34,7 +34,7 @@ export default function Total(props) {
     return total.map((tot, index) => {
       return (
         <section className="monthly-total">
-          <h3 key={index}>
+          <h3>
             <div className="monthly-total-item">Monthly Total</div>{" "}
             <div className="tot">{tot.total}</div>
           </h3>
@@ -42,6 +42,17 @@ export default function Total(props) {
       );
     });
   };
+
+  // const emptyTotal = () => {
+  //   return (
+  //     <section className="monthly-total">
+  //       <h3>
+  //         <div className="monthly-total-item">Monthly Total</div>{" "}
+  //         <div className="tot">0.00</div>
+  //       </h3>
+  //     </section>
+  //   );
+  // };
 
   return <section className="total">{renderTotal()}</section>;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Header.css";
 import TokenService from "../../services/token-service";
 
 export default function Header(props) {
@@ -25,7 +26,7 @@ export default function Header(props) {
 
   return (
     <nav className="header">
-      <h1>Your Subscriptions!</h1>
+      <h1 className="dashboardTitle">Your Subscriptions!</h1>
       {TokenService.hasAuthToken() ? renderLogoutLink() : renderLoginLink()}
     </nav>
   );

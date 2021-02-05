@@ -37,7 +37,7 @@ export default function LandingPage() {
   return (
     <main className="landing-page-main">
       <header className="App-header">
-        <h1>Welcome to Subroom!</h1>
+        <h1 className="landingPageTitle">Welcome to Subroom!</h1>
         <h2>Your subscriptions need a home too</h2>
       </header>
       {TokenService.hasAuthToken() ? loggedIn() : notLoggedIn()}

@@ -7,6 +7,20 @@ import EditSubscription from "./routes/EditSubscription/EditSubscription";
 import PublicOnlyRoute from "./components/Utils/PublicOnlyRoute";
 import LandingPage from "./routes/LandingPage/LandingPage";
 import RegistrationForm from "./routes/RegistrationForm/RegistrationForm";
+import "./App.css";
+import Particles from "react-particles-js";
+
+const particlesOptions = {
+  particles: {
+    number: {
+      value: 175,
+      density: {
+        enable: true,
+        value_area: 1000,
+      },
+    },
+  },
+};
 
 function App(props) {
   const [subscriptions, setSubscriptions] = useState([]);
@@ -33,6 +47,8 @@ function App(props) {
     <main className="App">
       <section className="app-with-header">
         {hasError && <p className="red">There was an error! Oh no!</p>}
+
+        <Particles className="particles" params={particlesOptions} />
 
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />

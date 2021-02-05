@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter, Link, useHistory } from "react-router-dom";
-import AuthService from "../../services/auth-service";
 import "./RegistrationForm.css";
+import AuthService from "../../services/auth-service";
 
 function RegistrationForm(props) {
   const [error, setError] = useState(null);

@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.logout-button {
+  position: fixed;
+  right: 10px;
+  top: 5px;
+  padding: 5px;
+  margin-top: 3.5em;
+}
+
+.dashboardTitle {
+  font-size: 2em;
+  padding: 1em;
+  border-radius: 20px;
+  border: solid black;
+}
