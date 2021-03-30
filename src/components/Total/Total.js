@@ -9,7 +9,7 @@ export default function Total(props) {
   useEffect(() => {
     let isMounted = true;
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/api/subscriptions/total`, {
+      fetch(`https://www.subroom-server.tk/api/subscriptions/total`, {
         method: "GET",
         headers: {
           authorization: `bearer ${TokenService.getAuthToken()}`,

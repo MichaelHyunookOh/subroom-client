@@ -2,7 +2,7 @@ import config from "../config";
 
 const AuthService = {
   postLogin(credentials) {
-    return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
+    return fetch(`https://www.subroom-server.tk/api/auth/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -14,7 +14,7 @@ const AuthService = {
   },
 
   postUser(user) {
-    return fetch(`${config.API_ENDPOINT}/api/users`, {
+    return fetch(`https://www.subroom-server.tk/api/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

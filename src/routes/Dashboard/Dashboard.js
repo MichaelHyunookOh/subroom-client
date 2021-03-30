@@ -14,7 +14,7 @@ export default function Dashboard(props) {
   useEffect(() => {
     let isMounted = true;
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/api/subscriptions`, {
+      fetch(`https://www.subroom-server.tk/api/subscriptions`, {
         method: "GET",
         headers: {
           authorization: `bearer ${TokenService.getAuthToken()}`,

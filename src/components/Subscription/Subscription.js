@@ -6,7 +6,7 @@ import "./Subscription.css";
 
 function Subscription(props) {
   const deleteSubscriptionRequest = () => {
-    fetch(`${config.API_ENDPOINT}/api/subscriptions/${props.id}`, {
+    fetch(`https://www.subroom-server.tk/api/subscriptions/${props.id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

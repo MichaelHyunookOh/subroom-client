@@ -16,7 +16,7 @@ function EditSubscription(props) {
   useEffect(() => {
     let isMounted = true;
     const subscriptionId = props.match.params.subscriptionId;
-    fetch(`${config.API_ENDPOINT}/api/subscriptions/${subscriptionId}`, {
+    fetch(`https://www.subroom-server.tk/api/subscriptions/${subscriptionId}`, {
       method: "GET",
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
@@ -51,7 +51,7 @@ function EditSubscription(props) {
     };
 
     fetch(
-      `${config.API_ENDPOINT}/api/subscriptions/${props.match.params.subscriptionId}`,
+      `https://www.subroom-server.tk/api/subscriptions/${props.match.params.subscriptionId}`,
       {
         method: "PATCH",
         headers: {

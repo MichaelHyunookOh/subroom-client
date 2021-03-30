@@ -22,7 +22,7 @@ export default function AddSubscription(props) {
       subscription_password: password,
       category: category,
     };
-    fetch(`${config.API_ENDPOINT}/api/subscriptions`, {
+    fetch(`https://www.subroom-server.tk/api/subscriptions`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
